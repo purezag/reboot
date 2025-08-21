@@ -285,7 +285,7 @@ header {
 
     .buttons {
         position: absolute;
-        bottom: 5%;
+        bottom: 15%;
         left: 50%;
         text-transform: uppercase;
         text-align: center;
@@ -1024,8 +1024,16 @@ footer {
         }
 
         .buttons {
+            
             width: 100%;
             left: 0;
+
+            & .arrow-down {
+                padding: 0;
+                & button {
+
+                }
+            }
         }
 
 
