@@ -274,7 +274,7 @@ header {
             & p {
                               
                 font-family: inter;
-                width: 100%;
+                width: 300px;
                 padding-left: 200px;
                 text-align: justify; 
             }
@@ -805,7 +805,7 @@ footer {
                 
                 & p {
                     text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);   
-                    width: 100%;
+                    width: 400px;
                     padding-left: 3rem;
                      
                 }
