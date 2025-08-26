@@ -1,4 +1,4 @@
-// Cada drone com profundidade
+
 const drones = [
   { el: document.querySelector('.img-drone1'), depth: 30 },
   { el: document.querySelector('.img-drone2'), depth: 50 },
@@ -24,15 +24,15 @@ const tools = [
   { el: document.querySelector('.img-tool6'), depth: 60 }
 ];
 
-// Posições alvo (mouse)
+
 let targetX = 0, targetY = 0;
-// Posições atuais
+
 let currentX = 0, currentY = 0;
-// Fricção (quanto menor, mais lento e suave)
+
 const friction = 0.05;
 
 window.addEventListener('mousemove', (e) => {
-  // Normaliza (-0.5 até 0.5)
+  
   const x = e.clientX / window.innerWidth - 0.5;
   const y = e.clientY / window.innerHeight - 0.5;
 
@@ -41,11 +41,11 @@ window.addEventListener('mousemove', (e) => {
 });
 
 function animate() {
-  // Aproxima a posição atual da posição alvo
+  
   currentX += (targetX - currentX) * friction;
   currentY += (targetY - currentY) * friction;
 
-  // Aplica em cada drone com profundidade diferente
+  
   drones.forEach(drone => {
     const moveX = currentX * drone.depth;
     const moveY = currentY * drone.depth;
@@ -70,13 +70,6 @@ animate();
 
 // =============================
 
-
-
-
-
-
-// ==================================
-
 const sections = document.querySelectorAll("section");
         const hero = document.querySelector(".hero");
         const sec2 = document.querySelector(".section-2");
@@ -91,13 +84,13 @@ const sections = document.querySelectorAll("section");
             section.classList.add("fade-in");
         }
 
-        // Inicial: hero
+        
         window.addEventListener("load", () => {
             sections.forEach(s => s.classList.add("hidden"));
             showSection(hero);
         });
 
-        // Navegações
+        
         document.querySelector(".arrow-down button").addEventListener("click", () => showSection(sec2));
         document.querySelector(".page-info button").addEventListener("click", () => showSection(sec3));
         document.querySelector(".goback button").addEventListener("click", () => showSection(sec2));
@@ -111,7 +104,7 @@ const sections = document.querySelectorAll("section");
        const products = document.querySelectorAll('.product-info');
     let currentIndex = 0;
     let isAnimating = false;
-    let autoSlide; // timer
+    let autoSlide; 
 
     function showProduct(newIndex, direction) {
         if (isAnimating || newIndex === currentIndex) return;
@@ -120,15 +113,15 @@ const sections = document.querySelectorAll("section");
         const currentProduct = products[currentIndex];
         const nextProduct = products[newIndex];
 
-        // Remove ativo do atual
+       
         currentProduct.classList.remove('active');
         currentProduct.classList.add(direction === 'next' ? 'slide-in-left' : 'slide-in-right');
 
-        // Define posição inicial do próximo
+       
         nextProduct.style.left = direction === 'next' ? '100%' : '-100%';
         nextProduct.classList.add('active');
 
-        // Força reflow
+        
         void nextProduct.offsetWidth;
 
         nextProduct.style.left = '0';
@@ -153,7 +146,7 @@ const sections = document.querySelectorAll("section");
         resetAutoSlide();
     }
 
-    // Botões
+    
     document.querySelectorAll('.next').forEach(btn => {
         btn.addEventListener('click', nextProduct);
     });
@@ -162,7 +155,7 @@ const sections = document.querySelectorAll("section");
         btn.addEventListener('click', prevProduct);
     });
 
-    // Swipe (arrastar pro lado)
+    
     let startX = 0;
     document.querySelector('.showroom').addEventListener('touchstart', (e) => {
         startX = e.touches[0].clientX;
@@ -177,12 +170,12 @@ const sections = document.querySelectorAll("section");
         }
     });
 
-    // --- Auto Slide ---
+    
     function startAutoSlide() {
         autoSlide = setInterval(() => {
             const newIndex = (currentIndex + 1) % products.length;
             showProduct(newIndex, 'next');
-        }, 4000); // troca a cada 4 segundos
+        }, 4000); 
     }
 
     function resetAutoSlide() {
@@ -190,6 +183,6 @@ const sections = document.querySelectorAll("section");
         startAutoSlide();
     }
 
-    // inicia
+    
     startAutoSlide();
 
